@@ -12,4 +12,3 @@ function loop() {
 }
 
 window.requestAnimationFrame(loop);
-hallo
