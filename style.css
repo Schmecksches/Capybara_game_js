@@ -1,0 +1,27 @@
+* {
+  margin: 0;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.playground {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  margin-top: 70px;
+  border: 1px solid blue;
+  background-color: white;
+}
+
+.player {
+  position: absolute;
+  background-color: red;
+  width: 30px;
+  height: 30px;
+}
