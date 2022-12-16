@@ -1,7 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;600&display=swap");
 * {
   margin: 0;
   padding: 0px;
   box-sizing: border-box;
+}
+
+.homescreen {
+  position: absolute;
+  width: 800px;
+  height: 800px;
+  background-color: black;
+  overflow: hidden;
+  z-index: 100;
+}
+
+.format {
+  margin-top: 70px;
+}
+
+h1 {
+  color: white;
+  margin-top: 200px;
+  font-size: 100px;
+  font-family: "IBM Plex Mono", monospace;
+  text-shadow: 5px 4px 5px rgb(45, 180, 63);
+  align-items: center;
+
+  text-align: center;
+}
+
+.homescreen p {
+  text-align: center;
+  align-items: center;
+  font-family: "IBM Plex Mono", monospace;
+  color: white;
+  font-size: 16px;
+  margin: 50px;
+  width: 400px;
+}
+a {
+  display: flex;
+  justify-content: center;
+  color: red;
+  font-size: 30px;
+  font-family: "IBM Plex Mono", monospace;
+  text-decoration: none;
+  color: rgb(45, 180, 63);
+}
+a:hover {
+  font-size: 25px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.about-spiel {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+.about-spiel img {
+  width: 150px;
+  margin-top: 50px;
+  height: 100px;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 body {
@@ -26,8 +92,8 @@ body {
 
 .player {
   position: absolute;
-  width: 15px;
-  height: 28px;
+  width: 18px;
+  height: 33px;
   background-image: url("img/1.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -38,13 +104,6 @@ body {
   background-color: blue;
   width: 30px;
   height: 30px;
-}
-
-.Ziel {
-  position: absolute;
-  width: 800px;
-  height: 40px;
-  background-color: green;
 }
 
 .fahrzeuge {
@@ -118,4 +177,25 @@ body {
   background-image: url("img/Auto_blau_l.png");
   background-size: 100%;
   background-repeat: no-repeat;
+}
+
+.coin {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  background-image: url("img/coin.png");
+  background-size: contain;
+}
+
+.score {
+  color: white;
+  display: inline-flex;
+  justify-content: center;
+  position: absolute;
+  top: 20px;
+  font-size: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.scoretext {
+  margin-left: 20px;
 }

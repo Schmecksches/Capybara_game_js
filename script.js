@@ -1,25 +1,35 @@
-var spieler = document.querySelector(".player");
-var spielfeld = document.querySelector(".playground");
-var points = parseInt("0");
-var ziel = document.querySelector(".Ziel");
+let spieler = document.querySelector(".player");
+let spielfeld = document.querySelector(".playground");
+let ziel = document.querySelector(".Ziel");
+let pointsDisplay = document.querySelector(".scoretext");
 
+let startbutton = document.querySelector(".button");
+let startfield = document.querySelector(".homescreen");
+let score = 0;
 spieler.style.left = "370px";
 
 spieler.style.top = "765px";
 
-var randomnumber = Math.floor(Math.random() * 50) + 40;
+let randomnumber = Math.floor(Math.random() * 50) + 40;
 
-var timer = new Timer(randomnumber);
-var timera = new Timer(90);
-var timerb = new Timer(100);
-var timerc = new Timer(135);
-var timerd = new Timer(155);
-var timere = new Timer(165);
-var timerf = new Timer(105);
-var timerg = new Timer(95);
-var timerh = new Timer(140);
+let timer = new Timer(randomnumber);
+let timera = new Timer(90);
+let timerb = new Timer(100);
+let timerc = new Timer(135);
+let timerd = new Timer(155);
+let timere = new Timer(165);
+let timerf = new Timer(105);
+let timerg = new Timer(95);
+let timerh = new Timer(140);
+let timercoin = new Timer(200);
 
-var count = new Timer(100);
+let remove = new Timer(600);
+
+startbutton.addEventListener("click", start);
+
+function start() {
+  startfield.style.display = "none";
+}
 
 function steuerung() {
   if (keyboard(68) && parseInt(spieler.style.left) < 768) {
@@ -36,7 +46,7 @@ function steuerung() {
     spieler.style.transform = "rotate(270deg)";
   }
 
-  if (keyboard(83) && parseInt(spieler.style.top) < 680) {
+  if (keyboard(83) && parseInt(spieler.style.top) < 768) {
     spieler.style.top = parseInt(spieler.style.top) + 2 + "px";
     spieler.style.backgroundImage = "url('img/Capybara-Walk.gif')";
     spieler.style.transform = "rotate(180deg)";
@@ -71,15 +81,15 @@ function dash() {
 
 function auto2() {
   if (timer.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto2");
     h.style.top = "90px";
     h.style.left = "-100px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto2");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto2");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) + 5.5 + "px";
     if (parseInt(fahrzeug.style.left) > 800) {
       fahrzeug.parentNode.removeChild(fahrzeug);
@@ -90,6 +100,7 @@ function auto2() {
     }
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
     }
@@ -98,15 +109,15 @@ function auto2() {
 
 function auto1() {
   if (timera.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto");
     h.style.top = "250px";
     h.style.left = "-100px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) + 4 + "px";
     if (parseInt(fahrzeug.style.left) > 800) {
       fahrzeug.parentNode.removeChild(fahrzeug);
@@ -117,6 +128,7 @@ function auto1() {
     }
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
     }
@@ -125,15 +137,15 @@ function auto1() {
 
 function auto3() {
   if (timerb.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto3");
     h.style.top = "165px";
     h.style.left = "800px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto3");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto3");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) - 5 + "px";
     if (parseInt(fahrzeug.style.left) > 800) {
       fahrzeug.parentNode.removeChild(fahrzeug);
@@ -144,6 +156,7 @@ function auto3() {
     }
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
     }
@@ -152,25 +165,26 @@ function auto3() {
 
 function auto4() {
   if (timerc.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto4");
     h.style.top = "330px";
     h.style.left = "900px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto4");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto4");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) - 2.2 + "px";
     if (parseInt(fahrzeug.style.left) > 900) {
       fahrzeug.parentNode.removeChild(fahrzeug);
     }
 
-    if (parseInt(fahrzeug.style.left) < -100) {
+    if (parseInt(fahrzeug.style.left) < -200) {
       fahrzeug.parentNode.removeChild(fahrzeug);
     }
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
     }
@@ -179,15 +193,15 @@ function auto4() {
 
 function auto5() {
   if (timere.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto5");
     h.style.top = "420px";
     h.style.left = "-200px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto5");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto5");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) + 2 + "px";
     if (parseInt(fahrzeug.style.left) > 800) {
       fahrzeug.parentNode.removeChild(fahrzeug);
@@ -198,6 +212,7 @@ function auto5() {
     }
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
     }
@@ -206,15 +221,15 @@ function auto5() {
 
 function auto6() {
   if (timerf.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto6");
     h.style.top = "490px";
     h.style.left = "800px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto6");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto6");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) - 4 + "px";
     if (parseInt(fahrzeug.style.left) > 800) {
       fahrzeug.parentNode.removeChild(fahrzeug);
@@ -225,6 +240,7 @@ function auto6() {
     }
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
     }
@@ -232,15 +248,15 @@ function auto6() {
 }
 function auto7() {
   if (timerg.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto7");
     h.style.top = "580px";
     h.style.left = "-100px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto7");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto7");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) + 3 + "px";
     if (parseInt(fahrzeug.style.left) > 800) {
       fahrzeug.parentNode.removeChild(fahrzeug);
@@ -251,6 +267,7 @@ function auto7() {
     }
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
     }
@@ -258,15 +275,15 @@ function auto7() {
 }
 function auto8() {
   if (timerh.ready()) {
-    var h = document.createElement("div");
+    let h = document.createElement("div");
     h.classList.add("auto8");
     h.style.top = "655px";
     h.style.left = "800px";
     spielfeld.appendChild(h);
   }
 
-  var fahrzeuge = document.querySelectorAll(".auto8");
-  for (var fahrzeug of fahrzeuge) {
+  let fahrzeuge = document.querySelectorAll(".auto8");
+  for (let fahrzeug of fahrzeuge) {
     fahrzeug.style.left = parseInt(fahrzeug.style.left) - 4 + "px";
     if (parseInt(fahrzeug.style.left) > 800) {
       fahrzeug.parentNode.removeChild(fahrzeug);
@@ -275,10 +292,42 @@ function auto8() {
     if (parseInt(fahrzeug.style.left) < -100) {
       fahrzeug.parentNode.removeChild(fahrzeug);
     }
+
     if (anyCollision(spieler, fahrzeuge)) {
       alert("Game over!");
+      alert("Your score is " + score);
       stopGame();
       return;
+    }
+  }
+}
+
+function colcoins() {
+  if (timercoin.ready()) {
+    let randomheight = Math.floor(Math.random() * (720 - 40) + 40);
+    let randomwidth = Math.floor(Math.random() * (720 - 40) + 40);
+    let h = document.createElement("div");
+    h.classList.add("coin");
+    h.style.top = randomheight + "px";
+    h.style.left = randomwidth + "px";
+    spielfeld.appendChild(h);
+  }
+
+  let coins = document.querySelectorAll(".coin");
+  let player = document.querySelector(".player");
+
+  for (let coin of coins) {
+    if (remove.ready()) {
+      coin.parentNode.removeChild(coin);
+    }
+    let collisions = allCollisions(player, coins);
+
+    for (let collision of collisions) {
+      collision.parentNode.removeChild(collision);
+
+      score = score + 1;
+
+      pointsDisplay.textContent = score;
     }
   }
 }
@@ -294,16 +343,9 @@ function loop() {
   auto7();
   auto8();
   dash();
-
-  // Kommentar: sobald der Spieler mit Gegner3 oder 4 kollidiert, werden diese gelöscht
-  var collisions = allCollisions(spieler, [ziel]);
-  // Kommentar: wir gehen durch alle Kollisionsobjekte durch und löschen sie
-  for (var collision of collisions) {
-  }
+  colcoins();
 
   window.requestAnimationFrame(loop);
 }
 
 window.requestAnimationFrame(loop);
-
-localStorage.setItem;
