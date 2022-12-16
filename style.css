@@ -10,18 +10,112 @@ body {
   justify-content: center;
 }
 
+.back {
+  object-fit: cover;
+  max-width: 800px;
+}
+
 .playground {
   position: relative;
-  width: 600px;
-  height: 600px;
+  width: 800px;
+  height: 800px;
   margin-top: 70px;
-  border: 1px solid blue;
   background-color: white;
+  overflow: hidden;
 }
 
 .player {
   position: absolute;
-  background-color: red;
+  width: 15px;
+  height: 28px;
+  background-image: url("img/1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.player2 {
+  position: absolute;
+  background-color: blue;
   width: 30px;
   height: 30px;
+}
+
+.Ziel {
+  position: absolute;
+  width: 800px;
+  height: 40px;
+  background-color: green;
+}
+
+.fahrzeuge {
+  position: absolute;
+}
+
+.auto {
+  position: absolute;
+  width: 98px;
+  height: 44px;
+  background-image: url("img/auto1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.auto2 {
+  position: absolute;
+  width: 98px;
+  height: 44px;
+  background-image: url("img/Auto_grün_r.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.auto3 {
+  position: absolute;
+  width: 98px;
+  height: 44px;
+  background-image: url("img/Auto_rot_l.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.auto4 {
+  position: absolute;
+  width: 176px;
+  height: 44px;
+  background-image: url("img/Lastwagen_l.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.auto5 {
+  position: absolute;
+  width: 176px;
+  height: 44px;
+  background-image: url("img/Lastwagen_r.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.auto6 {
+  position: absolute;
+  width: 98px;
+  height: 44px;
+  background-image: url("img/Auto_grün_l.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.auto7 {
+  position: absolute;
+  width: 98px;
+  height: 44px;
+  background-image: url("img/Auto_rot_r.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.auto8 {
+  position: absolute;
+  width: 98px;
+  height: 44px;
+  background-image: url("img/Auto_blau_l.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
