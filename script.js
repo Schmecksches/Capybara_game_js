@@ -5,6 +5,8 @@ let pointsDisplay = document.querySelector(".scoretext");
 
 let startbutton = document.querySelector(".button");
 let startfield = document.querySelector(".homescreen");
+let bgm = new Audio("music/bgm.mp3");
+let coin = new Audio("music/coin.mp3");
 let score = 0;
 spieler.style.left = "370px";
 
@@ -344,6 +346,8 @@ function loop() {
   auto8();
   dash();
   colcoins();
+
+  bgm.play();
 
   window.requestAnimationFrame(loop);
 }
