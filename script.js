@@ -36,7 +36,7 @@ function start() {
 function steuerung() {
   if (keyboard(68) && parseInt(spieler.style.left) < 768) {
     spieler.style.left = parseInt(spieler.style.left) + 2 + "px";
-    spieler.style.backgroundImage = "url('img/Capybara-Walk.gif')";
+    spieler.style.backgroundImage = "url('.../img/Capybara-Walk.gif')";
     spieler.style.transform = "rotate(90deg)";
   } else {
     spieler.style.backgroundImage = "url('img/1.png')";
