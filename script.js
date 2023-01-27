@@ -1,4 +1,8 @@
 let spieler = document.querySelector(".player");
+
+console.log(spieler.name);
+console.log(spieler.age);
+
 let spielfeld = document.querySelector(".playground");
 let ziel = document.querySelector(".Ziel");
 let pointsDisplay = document.querySelector(".scoretext");
